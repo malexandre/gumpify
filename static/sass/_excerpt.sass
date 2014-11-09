@@ -1,0 +1,97 @@
+.excerpt
+    padding-bottom: double($spacing) + $spacing
+
+    &__title
+        margin-bottom: $spacing
+        +font-size(40px)
+        font-weight: bold
+        font-family: Montserrat, Lato, Verdana, sans-serif
+
+        &__background
+            display: block
+            position: relative
+            margin-bottom: $spacing
+            height: $article-header-height
+            background-size: cover
+            background-position: center
+            background-color: $black
+
+            .link
+                +position(absolute, null double($spacing) double($spacing) double($spacing))
+                z-index: 1
+                color: $white
+                text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black
+
+            &:after
+                content: ''
+                +position(absolute, 0 0 0 0)
+                background-color: $black
+                opacity: 0.25
+                +trans(opacity, fast)
+
+            &:hover
+                &:after
+                    opacity: 0.125
+
+                .link
+                    color: $red
+
+    &__data
+        margin-bottom: $spacing
+        +clearfix
+
+    &__author
+        float: left
+        +font-size(12px)
+
+        &__avatar
+            margin-right: quarter($spacing)
+            width: 18px
+            height: 18px
+            border-radius: 50%
+            vertical-align: bottom
+
+    &__meta
+        float: right
+        +font-size(12px)
+
+        &__date,
+        &__tags
+            display: inline-block
+
+            .fa
+                margin-right: quarter($spacing)
+                width: 18px
+                color: $red
+                +font-size(18px)
+                vertical-align: bottom
+
+        &__date
+            margin-right: $spacing
+
+    &__continue
+        margin: $spacing 0
+        text-align: center
+        font-weight: bold
+        text-transform: uppercase
+
+    .post-content
+        margin: 0
+
++phones-mq()
+    .excerpt__title
+        +font-size(25px)
+
+        &__background
+            height: $phones-article-header-height
+
++horizontal-mq(smallest)
+    .excerpt__author,
+    .excerpt__meta
+        float: none
+        margin: halve($spacing) 0
+
+    .excerpt__meta__tags,
+    .excerpt__meta__date
+        display: block
+        margin: halve($spacing) 0

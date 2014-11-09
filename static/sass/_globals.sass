@@ -1,0 +1,68 @@
+html
+    font-size: ($font-size / 16px) * 1em
+    line-height: $line-height / $font-size
+    background-color: $background-color
+    color: $color
+    min-height: 100%
+    +box-sizing(border-box)
+    font-family: 'Open Sans', 'sans-serif'
+
+*
+    &,
+    &:before,
+    &:after
+        +box-sizing(border-box)
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre
+    margin-bottom: $spacing
+    margin-bottom: ($spacing / $font-size) * 1rem
+
+.content
+    max-width: 1100px
+    margin: 0 auto
+    padding: $spacing $article-padding
+
+.link
+    color: $black
+    text-decoration: none
+    +trans(color, fast)
+
+    &:hover
+        color: $red
+
+.page-title
+    margin-bottom: $spacing
+    +font-size(22px)
+    text-align: center
+
+    &__author,
+    &__category,
+    &__tag,
+    .fa
+        color: $red
+
++horizontal-mq(smallest)
+    .content
+        padding: $spacing double($spacing)
+
++horizontal-mq(smaller)
+    .content
+        padding: $spacing double($spacing)
+
++horizontal-mq(small)
+    .content
+        +position(absolute, 0 0 null 0)
+        padding: $spacing halve($article-padding)
+        +trans(left)
+
++horizontal-mq(big)
+    .content-wrapper
+        +trans(margin-left)
+
+    .content-wrapper--sidebar-visible
+        margin-left: $sidebar-width

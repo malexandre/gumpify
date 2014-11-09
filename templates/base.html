@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ DEFAULT_LANG }}">
+  <head>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400|Montserrat:700|Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.min.css">
+      <link rel="alternate" type="application/atom+xml" title="{{ SITENAME }} — Flux Atom" href="{{ SITEURL }}/{{ FEED }}">
+      {% if FEED_RSS %}
+        <link rel ="alternate" type="application/rss+xml" title="{{ SITENAME }} — Flux RSS" href="{{ SITEURL }}/{{ FEED_RSS }}">
+      {% endif %}
+  </head>
+  <body>
+    <a href="/" id="home-button" class="link home-button">Home</a>
+    <div class="sidebar__toggle">
+      <i id="sidebar__button" class="fa fa-bars sidebar__button" onclick="sidebarToggle(this)"></i>
+      <div class="sidebar__closed-title sidebar__closed-title--hidden" onclick="sidebarToggle(this)">
+        <img src="http://www.gravatar.com/avatar/cc9648c14c583857f6e0cb0b31ae2dd7" class="sidebar__closed-title__avatar">
+        <div id="sidebar__closed-title__text" class="link sidebar__closed-title__text">
+          {{ SITENAME }}
+        </div>
+      </div>
+    </div>
+    <div id="sidebar" class="sidebar">
+      {% include 'nav.html' %}
+
+      <div class="sidebar__footer">
+        {% include 'identity.html' %}
+
+        {{ FOOTER_TEXT or 'Powered by <a href="http://docs.getpelican.com/" class="sidebar__footer__link">Pelican</a>, theme by <a href="http://www.malexandre.fr" class="sidebar__footer__link">malexandre</a>' }}
+      </div>
+    </div>
+
+    <div id="content-wrapper" class="content-wrapper content-wrapper--sidebar-visible">
+      {% block content_title %}
+      {% endblock %}
+
+      <div id="content" class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <script src="{{ SITEURL }}/theme/js/app.js" charset="utf-8"></script>
+  </body>
+</html>

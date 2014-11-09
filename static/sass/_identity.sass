@@ -1,0 +1,58 @@
+.identity
+    position: relative
+    text-align: center
+
+    &--inline
+        text-align: left
+        &:after
+            clear: both
+
+        .identity__avatar
+            position: absolute
+            top: 50%
+            left: 0
+            margin-top: -($avatar-size / 2)
+
+        .identity__name,
+        .identity__description,
+        .identity__social
+            margin-left: $avatar-size + $spacing
+            margin-top: quarter($spacing)
+
+        .identity__name
+            margin-top: 0
+            padding-top: halve($spacing)
+
+        .identity__social
+            text-align: center
+
+    &__avatar
+        position: relative
+        border-radius: 50%
+        width: $avatar-size
+        height: $avatar-size
+
+    &__name
+        //margin-top: halve($spacing)
+        font-weight: bold
+        +font-size(2em)
+        font-family: Montserrat, Lato, Verdana, sans-serif
+
+    &__description
+        //margin-top: quarter($spacing)
+        color: secondary($white)
+
+    &__social
+        margin-top: $spacing
+
+        .fa-github-alt
+            color: $black
+
+        .fa-google-plus
+            color: #dd4b39
+
+        .fa-linkedin
+            color: #007bb6
+
+        .fa-twitter
+            color: #00aced

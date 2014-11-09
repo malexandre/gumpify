@@ -1,0 +1,29 @@
+<ul class="nav sidebar__nav">
+  <li class="nav__item {% if page_name == "index" %}nav__item--selected{% endif %}">
+    <a href="{{ SITEURL }}/" class="nav__item__link">
+      <span class="nav__item__link__text">Home</span>
+    </a>
+  </li>
+  <li class="nav__item {% if page_name == "about" %}nav__item--selected{% endif %}">
+    <a href="{{ SITEURL }}/about.html" class="nav__item__link">
+      <span class="nav__item__link__text">About</span>
+    </a>
+  </li>
+  {% for cat, articles in categories %}
+  <li class="nav__item {% if cat == category %}nav__item--selected{% endif %}">
+    <a href="{{ SITEURL }}/{{ cat.url }}" class="nav__item__link">
+      <span class="nav__item__link__text">{{ cat }}</span>
+    </a>
+  </li>
+  {% endfor %}
+  <li class="nav__item {% if page_name == "archives" %}nav__item--selected{% endif %}">
+    <a href="{{ SITEURL }}/archives.html" class="nav__item__link">
+      <span class="nav__item__link__text">Archives</span>
+    </a>
+  </li>
+  <li class="nav__item">
+    <a href="" class="nav__item__link">
+      <span class="nav__item__link__text">Subscribe to Feed</span>
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ SITENAME }} - {{ article.title | striptags }}
+{% endblock %}
+
+{% block content_title %}
+  <div class="article__title">
+    <div id="article__title__background" class="article__title__background article__title__background--sidebar-visible"
+         style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                                  {% if article.banner %}url('{{ article.banner }}'){% endif %}">
+      <div class="article__title__background__text">{{ article.title }}</div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  {{ article.author_gravatar }}<br/>
+  {{ AUTHOR_EMAIL }}
+  <div class="post-content">
+    {{ article.content }}
+  </div>
+{% endblock %}

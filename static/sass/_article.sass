@@ -1,0 +1,33 @@
+.article
+    &__title
+        +font-size(40px)
+        font-weight: bold
+        font-family: Montserrat, Lato, Verdana, sans-serif
+
+        &__background
+            display: block
+            +position(absolute, 0 0 null 0)
+            padding: double($spacing)
+            height: $article-header-height
+            background-size: cover
+            background-position: center
+            background-color: $black
+            +background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)))
+            +trans(left)
+
+            &--sidebar-visible
+                left: $sidebar-width
+
+            &__text
+                position: relative
+                z-index: 1
+                color: $white
+                text-align: center
+                text-shadow: -1px 0 $black, 0 1px $black, 1px 0 $black, 0 -1px $black
+
++phones-mq()
+    .article__title
+        +font-size(25px)
+
+        &__background
+            height: $phones-article-header-height

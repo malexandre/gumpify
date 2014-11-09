@@ -1,0 +1,23 @@
+{
+  "name": "pelican-theme",
+  "version": "1.0.0",
+  "authors": [
+    "marc@malexandre.fr"
+  ],
+  "description": "Theme for pelican for stylish simple SPA blog by malexandre",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~4.0.2",
+    "font-awesome": "~4.2.0",
+    "normalize.css": "~3.0.2",
+    "velocity": "~1.1.0"
+  }
+}

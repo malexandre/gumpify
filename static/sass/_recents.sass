@@ -1,0 +1,23 @@
+.recents
+    position: relative
+
+    &__title
+        padding: halve($spacing) 0
+        color: darken($gray, 15%)
+        text-transform: uppercase
+
+    &__list
+        margin: 0
+        padding: 0
+        list-style: none
+
+    &__item
+        padding: quarter($spacing) 0
+
+        &__link
+            color: darken($gray, 15%)
+            text-decoration: none
+            +trans(color, fast)
+
+            &:hover
+                color: $white

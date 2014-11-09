@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block title %}
+  {{ SITENAME }} - Articles in Category {{ category | striptags }}
+{% endblock %}
+
+{% block content_title %}
+<div class="page-title">
+  Articles in <span class="page-title__category">{{ category }}</span>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ SITENAME }} - {{ article.title | striptags }}
+{% endblock %}
+
+{% block content %}
+test post
+  <div class="article__content">
+    {{ article.content }}
+  </div>
+{% endblock %}

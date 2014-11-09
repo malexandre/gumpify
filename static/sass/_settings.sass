@@ -1,0 +1,103 @@
+//
+// Base variables
+//
+$black: #333
+$blue: #5677fc
+$gray: #ccc
+$green: #9ccc65
+$orange: #ffb74d
+$purple: #7e57c2
+$red: #e84e40
+$white: #fff
+$yellow: #ffeb3b
+
+$spacing: 24px
+$font-size: 16px
+$line-height: 24px
+$color: $black
+$background-color: $white
+$avatar-size: 80px
+
+$sidebar-width: 300px
+$sidebar-footer-height: 50px
+$sidebar-toggle-height: 30px
+
+$fa-font-path: '../fonts/'
+
+$article-padding: 150px
+$article-header-height: 400px
+$phones-article-header-height: 200px
+
+//
+// Google Web Fonts
+//
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400|Montserrat:700|Inconsolata)
+
+//
+// Media queries
+//
+=vertical-mq($point)
+    @if $point == small
+        @media screen and (max-height: 920px)
+            @content
+    @else if $point == big
+        @media screen and (min-height: 921px)
+            @content
+
+=horizontal-mq($point)
+    @if $point == smallest
+        @media screen and (max-width: 700px)
+            @content
+    @else if $point == smaller
+        @media screen and (min-width:701px) and (max-width: 1100px)
+            @content
+    @else if $point == small
+        @media screen and (min-width:1101px) and (max-width: 1399px)
+            @content
+    @else if $point == big
+        @media screen and (min-width: 1400px)
+            @content
+
+=phones-mq()
+    @media screen and (max-width: 450px) and (max-height: 750px), screen and (max-width: 750px) and (max-height: 450px)
+        @content
+
+//
+// Mixins
+//
+=font-size($size)
+    font-size: $size
+    @if unit($size) == "px"
+        font-size: $size
+        font-size: ($size / $font-size) * 1rem
+
+=font-awesome($content)
+    content: $content
+    font-family: FontAwesome
+    font-size: 1em
+    font-style: normal
+    font-weight: normal
+    line-height: 1.5em
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+=trans($property, $speed:'slow')
+    @if $speed == fast
+        +transition($property 0.2s ease-in-out)
+    @else
+        +transition($property 0.4s ease-in-out)
+
+//
+// Functions
+//
+@function double($number)
+    @return round($number * 2)
+
+@function halve($number)
+    @return round($number / 2)
+
+@function quarter($number)
+    @return round($number / 4)
+
+@function secondary($color)
+    @return darken($color, 33%)

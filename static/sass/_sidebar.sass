@@ -1,0 +1,107 @@
+$sidebar-color: #fff
+
+.home-button
+    +position(fixed, halve($spacing) $spacing null null)
+    color: $black
+    text-decoration: none
+    opacity: 0
+    +trans(opacity)
+    z-index: 10
+
+    &--on-banner
+        color: $white
+
+    &__sidebar-hidden
+        opacity: 1
+
+.sidebar
+    +position(fixed, 0 null 0 0)
+
+    padding: $spacing
+    width: $sidebar-width
+    color: $sidebar-color
+    background-color: $black
+    +background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/sidebar.jpg'))
+    background-size: cover
+    +trans(transform)
+    z-index: 10
+
+    &--hidden
+        +transform(translateX(-($sidebar-width)))
+
+    &__toggle
+        +position(fixed, halve($spacing) null null ($sidebar-width + halve($spacing)))
+        +trans(all)
+        z-index: 10
+
+        &--sidebar-hidden
+            left: halve($spacing)
+
+            .sidebar__button
+                opacity: 0
+
+            .sidebar__closed-title
+                opacity: 1
+                pointer-events: inherit
+                cursor: pointer
+
+    &__button
+        +position(absolute, 0 null null 0)
+        width: $sidebar-toggle-height
+        height: $sidebar-toggle-height
+        color: $black
+        background-color: $white
+        border: 1px solid $black
+        border-radius: 4px
+        line-height: $sidebar-toggle-height
+        text-align: center
+        cursor: pointer
+        +trans(opacity)
+
+    &__closed-title
+        height: $sidebar-toggle-height
+        opacity: 0
+        pointer-events: none
+        cursor: default
+        +trans(opacity)
+
+        &__avatar
+            border-radius: 50%
+            width: $sidebar-toggle-height
+            height: $sidebar-toggle-height
+            margin-right: quarter($spacing)
+
+        &__text
+            display: inline-block
+            line-height: $sidebar-toggle-height
+            vertical-align: top
+
+            &--on-banner
+                color: $white
+
+    &__divider
+        margin: $spacing 0
+        border-top: 1px dashed darken($gray, 40%)
+
+    &__nav
+        margin: 0 (-($spacing))
+
+    &__recents
+        +vertical-mq(small)
+            display: none
+
+    &__footer
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        +font-size(12px)
+        padding: $spacing
+
+        &__identity
+            margin: $spacing 0
+            +font-size(14px)
+
+        &__link
+            color: $sidebar-color
+            text-decoration: underline

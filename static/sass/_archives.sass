@@ -1,0 +1,26 @@
+.archives
+    &__title
+        margin-bottom: halve($spacing)
+        font-weight: bold
+        +font-size(24px)
+        font-family: Montserrat, Lato, Verdana, sans-serif
+
+    &__list
+        margin: 0
+        padding: 0
+        list-style: none
+
+        &__item
+            &__date
+                display: inline-block
+                margin-right: halve($spacing)
+                width: 175px
+                +font-size(12px)
+
+                .fa
+                    color: $red
+
+            &__title
+                display: inline-block
+                +font-size(16px)
+                font-weight: bold

@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block title %}
+  {{ SITENAME }} - Articles by {{ author }}
+{% endblock %}
+
+{% block content_title %}
+<div class="page-title">
+  Articles by <span class="page-title__author">{{ author }}</span>
+</div>
+{% endblock %}

@@ -1,0 +1,197 @@
+.post-content
+    margin-top: $article-header-height + $spacing
+
+    h1, h2, h3, h4, h5, h6
+        font-family: Montserrat
+
+    h1
+        +font-size(40px)
+
+    h2
+        +font-size(30px)
+
+    h3
+        +font-size(24px)
+
+    h4
+        +font-size(18px)
+
+    h5
+        +font-size(14px)
+
+    h6
+        +font-size(10px)
+
+    p
+        margin: $spacing 0
+
+    ul,
+    ol
+        margin: 0
+        margin-top: -(halve($spacing))
+        margin-bottom: $spacing
+        padding: 0
+        padding-left: 20px
+
+        & ul,
+        & ol
+            margin-top: 0
+            margin-left: $spacing
+            margin-bottom: quarter($spacing)
+
+    ol
+        padding-left: 24px
+
+    a
+        @extend .link
+        text-decoration: underline
+
+    dl
+        dt
+            font-weight: bold
+
+    code
+        margin: 0 1px
+        padding: 2px quarter($spacing)
+        background-color: #f4f4f4
+        border: 1px solid #CCC
+        border-radius: 3px
+        font-family: monospace
+
+    kbd
+        display: inline-block
+        padding: 2px quarter($spacing)
+        background-color: #e7e7e7
+        +linear-gradient(#fefefe, #e7e7e7)
+        background-repeat: repeat-x
+        border: 1px solid #cfcfcf
+        border-radius: 2px
+        font-family: monospace
+
+    img
+        display: block
+        margin: $spacing auto
+        max-width: 100%
+
+    table
+        width: 100%
+        text-align: left
+
+        thead tr
+            border-bottom: 2px solid $gray
+
+        tbody tr
+            &:hover
+                background-color: lighten($gray, 15%)
+
+            &:last-child
+                border-bottom: 0
+
+        tr
+            border-bottom: 1px solid $gray
+
+            td, th
+                padding: quarter($spacing) 0
+
+    figure
+        position: relative
+
+        &:hover, &:focus
+            figcaption
+                opacity: 0
+
+        figcaption
+            +position(absolute, null 0 0 0)
+            padding: halve($spacing)
+            color: $white
+            +background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)))
+            +font-size(12px)
+            +trans(opacity, fast)
+
+
+    hr
+        border: 0
+        height: 1px
+        +linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0))
+
+    blockquote
+        margin: $spacing 0
+        padding-left: $spacing
+        border-left: quarter($spacing) solid $red
+
+        &.pullquote
+            position: relative
+            margin: double($spacing) (double($spacing) - $article-padding)
+            padding: 0 $spacing
+            border: 0
+            font-size: 1.5rem
+            font-style: italic
+            text-align: center
+
+            &:before,
+            &:after
+                color: $red
+                font-family: 'Montserrat'
+                font-size: 5rem
+                line-height: 1
+
+            &:before
+                +position(absolute, -0.1em null null (-($spacing)))
+                content: open-quote
+
+            &:after
+                +position(absolute, null (-($spacing)) -0.5em null)
+                content: close-quote
+
+    .center-block
+        display: block
+        margin-right: auto
+        margin-left: auto
+
+    .pull-right
+        float: right
+
+    .pull-left
+        float: left
+
+    .text-left
+        text-align: left
+
+    .text-right
+        text-align: right
+
+    .text-center
+        text-align: center
+
+    .text-justify
+        text-align: justify
+
++phones-mq()
+    .post-content
+        margin-top: $phones-article-header-height + $spacing
+
++horizontal-mq(smallest)
+    .post-content blockquote.pullquote
+        margin: double($spacing) (-($spacing))
+
+        &:after
+            right: 0
+
++horizontal-mq(smaller)
+    .post-content blockquote.pullquote
+        margin: double($spacing) (-($spacing))
+
+        &:after
+            right: 0
+
++horizontal-mq(small)
+    .post-content blockquote.pullquote
+        margin: double($spacing) (double($spacing) - halve($article-padding))
+
+        &:before,
+        &:after
+            // Don't know why, but without this the quotes are truncated
+            width: 52px
+
+        &:before
+            left: -(double($spacing))

@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block title %}
+  {{ SITENAME }} - Articles tagged with {{ tag }}
+{% endblock %}
+
+{% block content_title %}
+<div class="page-title">
+  <i class="fa fa-tag"></i> Tag: <span class="page-title__tag">{{ tag }}</span>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+.nav
+    margin: 0
+    padding: 0
+    list-style: none
+
+    &__item
+        position: relative
+        text-transform: uppercase
+
+        &--has-child > &__link:after
+            +font-awesome($fa-var-caret-right)
+            +position(absolute, 50% 10px null null)
+            margin-top: -(round($line-height / 2))
+            pointer-events: none
+
+        &:hover > &__link
+            color: $white
+            text-shadow: 0px 0px 1px $white
+
+        &--selected > &__link,
+        &--selected:hover > &__link
+            color: $red
+
+        &__link
+            display: block
+            color: darken($gray, 15%)
+            overflow: hidden
+            +trans(color, fast)
+            text-decoration: none
+            text-shadow: 0px 0px 5px $black
+
+            &__text
+                display: inline-block
+                padding: quarter($spacing) $spacing
+                width: 300px

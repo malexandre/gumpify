@@ -21,7 +21,7 @@ $sidebar-color: #fff
     width: $sidebar-width
     color: $sidebar-color
     background-color: $black
-    +background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/sidebar.jpg'))
+    +background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(''))
     background-size: cover
     +trans(transform)
     z-index: 10
@@ -66,10 +66,16 @@ $sidebar-color: #fff
         +trans(opacity)
 
         &__avatar
-            border-radius: 50%
-            width: $sidebar-toggle-height
-            height: $sidebar-toggle-height
+            position: relative
+            margin: auto
             margin-right: quarter($spacing)
+            max-width: 100%
+            max-height: $sidebar-toggle-height
+
+            &--is-round
+                width: $sidebar-toggle-height
+                height: $sidebar-toggle-height
+                border-radius: 50%
 
         &__text
             display: inline-block

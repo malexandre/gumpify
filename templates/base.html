@@ -7,20 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400|Montserrat:700|Inconsolata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.min.css">
-      <link rel="alternate" type="application/atom+xml" title="{{ SITENAME }} — Flux Atom" href="{{ SITEURL }}/{{ FEED }}">
-      {% if FEED_RSS %}
-        <link rel ="alternate" type="application/rss+xml" title="{{ SITENAME }} — Flux RSS" href="{{ SITEURL }}/{{ FEED_RSS }}">
-      {% endif %}
+    {% if CUSTOM_CSS %}
+      {% for css in CUSTOM_CSS %}
+        <link rel="stylesheet" type="text/css" href="{{ css }}">
+      {% endfor %}
+    {% endif %}
+    <link rel="alternate" type="application/atom+xml" title="{{ SITENAME }} — Flux Atom" href="{{ SITEURL }}/{{ FEED }}">
+    {% if FEED_RSS %}
+      <link rel ="alternate" type="application/rss+xml" title="{{ SITENAME }} — Flux RSS" href="{{ SITEURL }}/{{ FEED_RSS }}">
+    {% endif %}
+    {% if SITEBANNER %}
+      <style type="text/css">
+        .sidebar {
+          background-image: -webkit-linear-gradient(top,rgba(0,0,0,.6),rgba(0,0,0,.6)),url("{{ SITEBANNER }}");
+          background-image: linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,.6)),url("{{ SITEBANNER }}");
+        }
+      </style>
+    {% endif %}
   </head>
   <body>
     <a href="/" id="home-button" class="link home-button">Home</a>
     <div class="sidebar__toggle">
       <i id="sidebar__button" class="fa fa-bars sidebar__button" onclick="sidebarToggle(this)"></i>
       <div class="sidebar__closed-title sidebar__closed-title--hidden" onclick="sidebarToggle(this)">
-        <img src="http://www.gravatar.com/avatar/cc9648c14c583857f6e0cb0b31ae2dd7" class="sidebar__closed-title__avatar">
-        <div id="sidebar__closed-title__text" class="link sidebar__closed-title__text">
-          {{ SITENAME }}
-        </div>
+        {% if LOGO %}
+          <img src="{{ LOGO }}" class="sidebar__closed-title__avatar {% if ROUND_LOGO %}sidebar__closed-title__avatar--is-round{% endif %}">
+        {% endif %}
+        {% if not LOGO_HAS_TITLE %}
+          <div id="sidebar__closed-title__text" class="link sidebar__closed-title__text">
+            {{ SITENAME }}
+          </div>
+        {% endif %}
       </div>
     </div>
     <div id="sidebar" class="sidebar">

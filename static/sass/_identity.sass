@@ -28,9 +28,14 @@
 
     &__avatar
         position: relative
-        border-radius: 50%
-        width: $avatar-size
-        height: $avatar-size
+        margin: auto
+        max-width: 100%
+        max-height: $avatar-size
+
+        &--is-round
+            border-radius: 50%
+            width: $avatar-size
+            height: $avatar-size
 
     &__name
         //margin-top: halve($spacing)
@@ -44,15 +49,115 @@
 
     &__social
         margin-top: $spacing
+        +font-size(18px)
 
-        .fa-github-alt
-            color: $black
+        &__link
+            color: $white
+            text-decoration: none
 
-        .fa-google-plus
-            color: #dd4b39
+        &__item
+            &:hover
+                .fa-stack-1x
+                    color: $white
 
-        .fa-linkedin
-            color: #007bb6
+                .fa-stack-2x
+                    color: inherit
 
-        .fa-twitter
-            color: #00aced
+            .fa
+                +trans(color, fast)
+
+            .fa-stack-2x
+                color: $white
+
+            &.github,
+            &.github-alt,
+            &.github-square
+                color: #171516
+
+            &.google,
+            &.google-plus,
+            &.google-plus-square
+                color: #dd4b39
+
+            &.linkedin,
+            &.linkedin-square
+                color: #007bb6
+
+            &.twitter,
+            &.twitter-square
+                color: #55acee
+
+            &.foursquare
+                color: #f94877
+
+            &.hacker-news
+                color: #ff6600
+
+            &.reddit,
+            &.reddit-square
+                color: #ff5700
+
+            &.spotify
+                color: #84bd00
+
+            &.steam,
+            &.steam-square
+                color: #000
+
+            &.youtube,
+            &.youtube-square,
+            &.youtube-play
+                color: #cd201f
+
+            &.yelp
+                color: #b4282E
+
+            &.tumblr,
+            &.tumblr-square
+                color: #35465c
+
+            &.stack-exchange
+                color: #36649d
+
+            &.facebook,
+            &.facebook-square
+                color: #3B579d
+
+            &.dribbble
+                color: #ea4c89
+
+            &.bitbucket,
+            &.bitbucket-square
+                color: #205081
+
+            &.instagram
+                color: #211F20
+
+            &.lastfm,
+            &.lastfm-square
+                color: #a3000d
+
+            &.pinterest,
+            &.pinterest-square
+                color: #cc2127
+
+            &.stack-overflow
+                color: #000
+
+            &.vimeo-square
+                color: #1ab7ea
+
+            &.vine
+                color: #00b489
+
+            &.twitch
+                color: #6441a5
+
+            &.soundcloud
+                color: #ff3a00
+
+            &.flickr
+                color: rgba(21,21,23,0.95)
+
+            &.deviantart
+                color: #c8dc25
